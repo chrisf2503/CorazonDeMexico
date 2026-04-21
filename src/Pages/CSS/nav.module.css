@@ -1,0 +1,33 @@
+.nav{
+  	width: 100%;
+  	position: relative;
+  	overflow: hidden;
+  	display: flex;
+    justify-content: space-between ;
+  	align-items: center;
+  	text-align: center;
+  	font-size: var(--fs-32);
+  	color: var(--color-white);
+  	font-family: var(--font-im-fell-french-canon-sc);
+}
+.logo {
+  	height: var(--height-100);
+  	width: 435px;
+  	position: relative;
+  	object-fit: cover;
+}
+.links {
+    padding-right: 30px;
+  	width: 759px;
+  	overflow: hidden;
+    gap: 40px;
+  	flex-shrink: 0;
+  	display: flex;
+    justify-content: flex-end;
+}
+
+.nosortos,.gallaria,.contacto {
+  	position: relative;
+  	overflow: hidden;
+  	flex-shrink: 0;
+}

@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=IM+FELL+French+Canon+SC:ital,wght@0,400&display=swap');
+
+body {
+  	margin: 0; line-height: normal;
+}
+:root {
+  	
+  	/* Common Style Variables */
+  	
+  	/* Color */
+  	--color-white: #fff;
+  	
+  	/* Font */
+  	--font-im-fell-french-canon-sc: IM FELL French Canon SC;
+  	
+  	/* FontSize */
+  	--fs-32: 32px;
+  	--fs-40: 40px;
+  	--fs-64: 64px;
+  	
+  	/* WidthHeights */
+  	--height-67: 67px;
+  	--height-100: 100px;
+  	--width-101: 101px;
+  	--width-105: 105px;
+  	--width-520: 520px;
+  	--width-625: 625px;
+  	
+  	
+  	--left-0: 0px;
+  	--left-2: 2px;
+  	--top-0: 0px;
+  	--top-16: 16px;
+  	--top-18: 18px;
+  	--top-32: 32px;
+  	
+}
+
