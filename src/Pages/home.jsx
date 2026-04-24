@@ -1,27 +1,71 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Navbar from './Components/nav.jsx';
 import heart from '../assets/inifityheart.png';
 import homepageStyle from './CSS/home.module.css'
 import {serviceList} from './Components/serviceList.jsx'
 import img1 from '../img/img1.png'
 import img3 from '../img/img3.png'
+
 function Home(){
     const [openServiceId, setOpenServiceId] = useState(null);
+    const [visibleSections, setVisibleSections] = useState({});
 
     const handleServiceClick = (serviceId) => {
         setOpenServiceId(currentId => currentId === serviceId ? null : serviceId);
     };
 
+    useEffect(() => {
+        const sections = document.querySelectorAll('[data-fade-section]');
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                setVisibleSections((currentSections) => {
+                    const nextSections = { ...currentSections };
+
+                    entries.forEach((entry) => {
+                        nextSections[entry.target.dataset.fadeSection] = entry.isIntersecting;
+                    });
+
+                    return nextSections;
+                });
+            },
+            {
+                threshold: 0.25,
+            }
+        );
+
+        sections.forEach((section) => observer.observe(section));
+
+        return () => {
+            sections.forEach((section) => observer.unobserve(section));
+            observer.disconnect();
+        };
+    }, []);
+
+    const getSectionClassName = (sectionName, baseClassName) => {
+        const visibilityClassName = visibleSections[sectionName]
+            ? homepageStyle.fade_section_visible
+            : homepageStyle.fade_section_hidden;
+
+        return `${baseClassName} ${homepageStyle.fade_section} ${visibilityClassName}`;
+    };
+
     return (
         <div className={homepageStyle.homepage}>
-            <div className={homepageStyle.starter}>
+            <div
+                data-fade-section="starter"
+                className={getSectionClassName('starter', homepageStyle.starter)}
+            >
                 <Navbar/>
                 <div className={homepageStyle.video_container}>
                     {/* Add some video here, go through PC */}
                 </div>  
             </div>
 
-            <div className={homepageStyle.aboutus}>
+            <div
+                data-fade-section="aboutus"
+                className={getSectionClassName('aboutus', homepageStyle.aboutus)}
+            >
                 <div className={homepageStyle.title}>
                     <div className={homepageStyle.quines_somos}>¿Quiénes somos?</div>
                 </div>
@@ -35,7 +79,10 @@ function Home(){
                 </div>
             </div>
 
-            <div className={homepageStyle.gallarie_widget}>
+            <div
+                data-fade-section="gallarie"
+                className={getSectionClassName('gallarie', homepageStyle.gallarie_widget)}
+            >
                 <div className={homepageStyle.title}>
                     <div className={homepageStyle.nuestro_trabajo}>Nuestro Trabajo</div>
                 </div>
@@ -48,9 +95,12 @@ function Home(){
                 </div>
             </div>
 
-            <div className={homepageStyle.service}>
+            <div
+                data-fade-section="service"
+                className={getSectionClassName('service', homepageStyle.service)}
+            >
                 <div className={homepageStyle.title2}>
-                    <div className="servicio">Servicio</div>
+                    <div className={homepageStyle.servicio}>Servicio</div>
                 </div>
                 <div className={homepageStyle.service_container}>
                     <div className={homepageStyle.service_photo }>
