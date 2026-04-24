@@ -4,8 +4,8 @@
   	overflow: hidden;
   	display: flex;
    justify-content: space-between ;
+   gap:1.5rem;;
   	align-items: center;
-   gap: 1.5rem;
   	text-align: center;
   	font-size: var(--fs-32);
   	color: var(--color-white);
@@ -20,13 +20,13 @@
   	object-fit: cover;
 }
 .links {
-    padding-right: 30px;
+   padding-right: 40px;
   	width: min(759px, 100%);
   	overflow: hidden;
-    gap: 40px;
+   gap: 40px;
   	flex-shrink: 0;
   	display: flex;
-    justify-content: flex-end;
+   justify-content: flex-end;
 }
 
 .nosortos,.gallaria,.contacto {
@@ -43,7 +43,6 @@
    }
 
    .logo {
-      width: min(320px, 80vw);
       height: auto;
    }
 
@@ -62,9 +61,7 @@
       gap: 1rem;
    }
 
-   .logo {
-      width: min(260px, 82vw);
-   }
+   
 
    .links {
       gap: 0.75rem 1rem;
