@@ -1,0 +1,294 @@
+.page {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    color: var(--color-white);
+    background: linear-gradient(169.94deg, #000, #3c3c3c 59.94%, #403f3f 74.68%, #444);
+}
+
+.background_glow_top,
+.background_glow_bottom {
+    position: absolute;
+    width: 34rem;
+    height: 34rem;
+    border-radius: 999px;
+    filter: blur(70px);
+    pointer-events: none;
+    opacity: 0.32;
+}
+
+.background_glow_top {
+    top: -10rem;
+    left: -8rem;
+    background: rgba(221, 171, 63, 0.28);
+    animation: driftGlow 12s ease-in-out infinite;
+}
+
+.background_glow_bottom {
+    right: -10rem;
+    bottom: 8rem;
+    background: rgba(126, 34, 34, 0.32);
+    animation: driftGlow 14s ease-in-out infinite reverse;
+}
+
+.hero {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.hero_inner {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 3rem 1.5rem 6rem;
+    text-align: center;
+}
+
+.hero_badge {
+    padding: 0.65rem 1.1rem;
+    border: 1px solid rgba(244, 211, 94, 0.35);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.05);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+
+.hero_title {
+    margin: 0;
+    max-width: 12ch;
+    font-size: clamp(3.4rem, 11vw, 8rem);
+    line-height: 0.92;
+    text-shadow: 0 0 40px rgba(215, 169, 69, 0.18);
+}
+
+.hero_text {
+    margin: 0;
+    max-width: 44rem;
+    font-size: clamp(1.15rem, 2.5vw, 1.65rem);
+    line-height: 1.7;
+    color: rgba(255, 247, 230, 0.88);
+}
+
+.story_layout {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 7rem;
+    padding: 0 4rem 6rem;
+}
+
+.story_section {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    align-items: center;
+    gap: 3rem;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 36px;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+    backdrop-filter: blur(14px);
+}
+
+.story_section_reverse {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+}
+
+.story_section_reverse .story_media {
+    order: 2;
+}
+
+.story_section_reverse .story_copy {
+    order: 1;
+}
+
+.section_reveal {
+    transition: opacity 0.85s ease, transform 0.85s ease, filter 0.85s ease;
+    will-change: opacity, transform, filter;
+}
+
+.section_hidden {
+    opacity: 0;
+    transform: translateY(90px) scale(0.97);
+    filter: blur(8px);
+}
+
+.section_visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+}
+
+.story_media {
+    position: relative;
+    overflow: hidden;
+    border-radius: 28px;
+    min-height: 28rem;
+}
+
+.media_ring {
+    position: absolute;
+    inset: 1rem;
+    border: 1px solid rgba(249, 215, 135, 0.35);
+    border-radius: 26px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.story_image {
+    width: 100%;
+    height: 100%;
+    min-height: 28rem;
+    object-fit: cover;
+    display: block;
+    transform: scale(1.02);
+    transition: transform 0.7s ease, filter 0.7s ease;
+    filter: saturate(0.92) contrast(1.02);
+}
+
+.story_section:hover .story_image {
+    transform: scale(1.08);
+    filter: saturate(1.02) contrast(1.06);
+}
+
+.story_copy {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.2rem;
+    text-align: left;
+}
+
+.story_eyebrow {
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-size: 0.82rem;
+    color: #f4d35e;
+}
+
+.story_title {
+    margin: 0;
+    font-size: clamp(2.5rem, 5vw, 4.8rem);
+    line-height: 0.98;
+}
+
+.story_text {
+    margin: 0;
+    font-size: clamp(1.1rem, 2.2vw, 1.45rem);
+    line-height: 1.85;
+    color: rgba(255, 246, 233, 0.9);
+}
+
+.cta_panel {
+    position: relative;
+    overflow: hidden;
+    padding: 3rem 2rem;
+    border-radius: 32px;
+    text-align: center;
+    background: linear-gradient(169.94deg, rgba(0, 0, 0, 0.92), rgba(60, 60, 60, 0.88) 59.94%, rgba(64, 63, 63, 0.84) 74.68%, rgba(68, 68, 68, 0.82));
+    border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.cta_glow {
+    position: absolute;
+    inset: auto auto -8rem 50%;
+    width: 20rem;
+    height: 20rem;
+    transform: translateX(-50%);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.1);
+    filter: blur(70px);
+    pointer-events: none;
+}
+
+.cta_label {
+    position: relative;
+    margin-bottom: 1rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.78);
+}
+
+.cta_text {
+    position: relative;
+    margin: 0 auto;
+    max-width: 48rem;
+    font-size: clamp(1.2rem, 2.4vw, 1.8rem);
+    line-height: 1.7;
+}
+
+@keyframes driftGlow {
+    0%,
+    100% {
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+    50% {
+        transform: translate3d(1.5rem, 2rem, 0) scale(1.08);
+    }
+}
+
+@media (max-width: 980px) {
+    .story_layout {
+        padding: 0 1.5rem 4rem;
+        gap: 4rem;
+    }
+
+    .story_section,
+    .story_section_reverse {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .story_section_reverse .story_media,
+    .story_section_reverse .story_copy {
+        order: initial;
+    }
+
+    .story_media,
+    .story_image {
+        min-height: 22rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .hero_inner {
+        padding: 2rem 1rem 4rem;
+    }
+
+    .hero_badge {
+        font-size: 0.72rem;
+    }
+
+    .story_layout {
+        padding: 0 1rem 3rem;
+    }
+
+    .story_section {
+        padding: 1.2rem;
+        border-radius: 24px;
+    }
+
+    .story_media,
+    .story_image {
+        min-height: 18rem;
+    }
+
+    .story_text,
+    .cta_text {
+        line-height: 1.65;
+    }
+
+    .cta_panel {
+        padding: 2.25rem 1.2rem;
+    }
+}

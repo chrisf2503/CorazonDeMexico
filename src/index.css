@@ -2,6 +2,7 @@
 
 body {
   	margin: 0; line-height: normal;
+	background: linear-gradient(169.94deg, #000, #3c3c3c 59.94%, #403f3f 74.68%, #444);
 }
 :root {
   	
