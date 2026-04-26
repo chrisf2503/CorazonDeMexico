@@ -1,5 +1,6 @@
 import Navbar from "./Components/nav";
 import contactStyle from './CSS/contact.module.css';
+import Form from './Components/form.jsx'
 function Contact(){
 
     return (
@@ -15,7 +16,7 @@ function Contact(){
                 </div>
             </div>
             <div className="form">
-            
+                <Form/>
             </div>   
         </div>
     )

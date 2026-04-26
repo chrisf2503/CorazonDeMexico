@@ -1,0 +1,125 @@
+.form_container {
+    position: relative;
+    flex-shrink: 0;
+    text-align: center;
+    font-size: var(--fs-32);
+    color: black;
+    font-family: var(--font-jacques-francois);
+    width: min(100%, 574px);
+}
+.form {
+    box-shadow: 0px 4px 60px 3px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+    background-color: var(--color-mistyrose);
+    width: min(574px, 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 9px;
+    box-sizing: border-box;
+    padding: 12px;
+}
+
+.title {
+    height: 47px;
+    position: relative;
+    font-size: 36px;
+    font-family: var(--font-jacques-francois);
+    color: var(--color-black);
+    text-align: left;
+    display: inline-block;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    font-size: 32px;
+    color: var(--color-black);
+    font-family: var(--font-jacques-francois);
+    align-items: center;
+}
+
+.name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+}
+
+.value {
+    border-radius: 35px;
+    background-color: azure;
+    width: min(550px, 100%);
+    height: 66px;
+    overflow: hidden;
+    text-align: left;
+    font-size: 20px;
+    color: var(--color-darkslategray);
+    box-sizing: border-box;
+    padding: 0 12px;
+}
+
+.value2 {
+    width: 95%;
+    height: 250px;
+    position: relative;
+    border-radius: 10px;
+    background-color: azure;
+    overflow: hidden;
+    text-align: left;
+    font-size: 20px;
+    color: var(--color-darkslategray);
+    font-family: var(--font-jacques-francois);
+    box-sizing: border-box;
+    padding: 12px;
+}
+
+.submit {
+    height: 40px;
+    width: 90px;
+    border-radius: 26px;
+    background-color: rgb(184, 24, 184);
+    border-color: unset;
+    margin-bottom: 8px;
+    margin-top: 8px;
+}
+
+/* CHANGED: mobile form scaling */
+@media (max-width: 600px) {
+    .form_container {
+        width: 100%;
+    }
+
+    .form {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .title {
+        font-size: 30px;
+        height: auto;
+    }
+
+    .container {
+        font-size: 26px;
+    }
+
+    .value,
+    .value2 {
+        font-size: 18px;
+    }
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.status {
+    margin-top: 10px;
+    font-size: 14px;
+    text-align: center;
+}
