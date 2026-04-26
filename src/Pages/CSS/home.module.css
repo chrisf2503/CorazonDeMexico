@@ -15,9 +15,36 @@
     box-sizing: border-box;
     padding-bottom: 5rem;
 }
-.starter {
-    width: 100%;
+
+.aboutus,
+.gallarie_widget,
+.service {
     position: relative;
+    width: calc(100% - 4rem);
+    margin: 0 auto;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 36px;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+    backdrop-filter: blur(14px);
+    box-sizing: border-box;
+}
+
+.aboutus::before,
+.gallarie_widget::before,
+.service::before {
+    content: '';
+    position: absolute;
+    inset: auto auto -3rem -2rem;
+    width: 16rem;
+    height: 16rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+    filter: blur(60px);
+    pointer-events: none;
+}
+.starter {
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -51,8 +78,6 @@
 }
 /*about us*/
 .aboutus {
-  	width: 100%;
-  	position: relative;
   	overflow: hidden;
   	display: flex;
   	flex-direction: column;
@@ -62,7 +87,7 @@
   	color: var(--color-white);
   	font-family: var(--font-im-fell-french-canon-sc);
     box-sizing: border-box;
-    padding: 0 4rem;
+    padding: 2rem 4rem;
 }
 .title {
   	align-self: stretch;
@@ -81,17 +106,16 @@
     width: 100%;
   	overflow: hidden;
   	display: flex;
-  	align-items: center;
+  	align-items: stretch;
     gap: 3rem;
-    justify-content: space-around;
+    justify-content: space-between;
   	font-size: 40px;
 }
 .photo {
-  	height: auto;
-  	width: min(720px, 100%);
+  	flex: 1 1 54%;
+  	min-width: 0;
   	position: relative;
   	overflow: hidden;
-  	flex-shrink: 0;
 }
 .image1 {
   	position: static;
@@ -102,22 +126,23 @@
     border-radius: 24px;
 }
 .text_area {
-  	height: auto;
-  	width: min(710px, 100%);
-  	position: relative;
-  	overflow: hidden;
-  	flex-shrink: 0;
+  	flex: 1 1 46%;
+  	min-width: 0;
+  	display: flex;
+  	align-items: center;
 }
 .text {
   	width: 100%;
   	height: auto;
-    line-height: 1.45;
+    font-size: clamp(1.1rem, 1.65vw, 1.85rem);
+    line-height: 1.6;
+    text-align: left;
+    overflow-wrap: break-word;
+    word-break: normal;
 }
 
 /*Gallary*/
 .gallarie_widget {
-  	width: 100%;
-  	position: relative;
   	overflow: hidden;
   	display: flex;
   	flex-direction: column;
@@ -127,7 +152,7 @@
   	color: var(--color-white);
   	font-family: var(--font-im-fell-french-canon-sc);
     box-sizing: border-box;
-    padding: 0 4rem;
+    padding: 2rem 4rem;
 }
 .title {
   	align-self: stretch;
@@ -170,8 +195,6 @@
 /*Service*/
 
 .service {
-  	width: 100%;
-  	position: relative;
   	overflow: hidden;
   	flex-shrink: 0;
   	display: flex;
@@ -182,7 +205,7 @@
   	color: var(--color-white);
   	font-family: var(--font-im-fell-french-canon-sc);
     box-sizing: border-box;
-    padding: 0 4rem;
+    padding: 2rem 4rem;
 }
 .title2 {
   	align-self: stretch;
@@ -202,26 +225,48 @@
   	overflow: hidden;
   	flex-shrink: 0;
   	display: flex;
-  	align-items: center;
-  	justify-content: space-evenly;
-  	gap: 3rem;
+  	align-items: stretch;
+  	justify-content: space-between;
+  	gap: 4rem;
   	font-size: var(--fs-40);
+}
+.service_showcase {
+  	width: min(760px, 100%);
+  	display: flex;
+  	flex-direction: column;
+  	gap: 1.75rem;
 }
 .service_list {
   	width: min(625px, 100%);
   	margin: 0;
-  	padding: 63px 0;
+  	padding: 0;
   	list-style: none;
   	display: flex;
   	flex-direction: column;
-  	gap: 44px;
+  	gap: 1rem;
 }
 .service_item {
   	display: flex;
   	flex-direction: column;
-  	align-items: flex-start;
+  	align-items: stretch;
   	text-align: left;
-  	gap: 20px;
+  	gap: 0;
+  	padding: 1.25rem 1.35rem;
+  	border: 1px solid rgba(255, 255, 255, 0.1);
+  	border-radius: 24px;
+  	background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+  	box-shadow: 0 20px 35px rgba(0, 0, 0, 0.18);
+  	backdrop-filter: blur(10px);
+  	transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+.service_item:hover {
+  	transform: translateY(-4px);
+  	border-color: rgba(255, 215, 0, 0.22);
+  	box-shadow: 0 26px 44px rgba(0, 0, 0, 0.24);
+}
+.service_item_open {
+  	border-color: rgba(255, 215, 0, 0.3);
+  	background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 215, 0, 0.04));
 }
 .service_button {
   	display: flex;
@@ -234,6 +279,7 @@
   	font: inherit;
   	cursor: pointer;
   	text-align: left;
+  	width: 100%;
 }
 .service_button:hover {
   	color: gold;
@@ -250,37 +296,86 @@
   	flex-shrink: 0;
   	transition: filter 0.2s ease, transform 0.2s ease;
 }
+.service_button_title {
+  	flex: 1;
+}
+.service_plus {
+  	display: inline-flex;
+  	align-items: center;
+  	justify-content: center;
+  	width: 2.1rem;
+  	height: 2.1rem;
+  	border-radius: 999px;
+  	background: rgba(255, 255, 255, 0.08);
+  	font-size: 1.75rem;
+  	line-height: 1;
+  	flex-shrink: 0;
+}
 .service_button:hover .service_bullet,
 .service_button:focus-visible .service_bullet {
   	filter: brightness(0) saturate(100%) invert(74%) sepia(52%) saturate(629%) hue-rotate(358deg) brightness(98%) contrast(93%);
   	transform: scale(1.05);
 }
 .service_text {
-  	padding-left: 64px;
-  	font-size: 32px;
-  	line-height: 1.4;
+  	padding: 1rem 0 0 4rem;
+  	font-size: 1.55rem;
+  	line-height: 1.65;
+  	color: rgba(255, 255, 255, 0.86);
 }
 .service_photo {
-  	height: auto;
-  	width: min(815px, 100%);
   	position: relative;
-  	overflow: hidden;
-  	flex-shrink: 0;
+  	height: auto;
+  	width: 100%;
+  	padding: 1rem;
+  	border-radius: 32px;
+  	background: linear-gradient(160deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+  	border: 1px solid rgba(255, 255, 255, 0.1);
+  	box-shadow: 0 28px 55px rgba(0, 0, 0, 0.24);
+  	backdrop-filter: blur(12px);
+  	box-sizing: border-box;
+}
+.service_photo_glow {
+  	position: absolute;
+  	inset: auto auto 0 0;
+  	width: 14rem;
+  	height: 14rem;
+  	border-radius: 999px;
+  	background: rgba(255, 215, 0, 0.12);
+  	filter: blur(60px);
+  	pointer-events: none;
+}
+
+.service_kicker {
+  	margin-bottom: 0.75rem;
+  	letter-spacing: 0.14em;
+  	text-transform: uppercase;
+  	font-size: 0.95rem;
+  	color: rgba(255, 215, 0, 0.88);
+}
+.service_intro_text {
+  	margin: 0;
+  	font-size: 1.3rem;
+  	line-height: 1.7;
+  	color: rgba(255, 255, 255, 0.84);
 }
 .img5 {
+  	position: relative;
   	position: static;
   	display: block;
   	width: 100%;
   	height: auto;
   	object-fit: cover;
-    border-radius: 24px;
+  	border-radius: 24px;
 }
 
 @media (max-width: 1100px) {
+   .starter,
    .aboutus,
    .gallarie_widget,
    .service {
-      padding: 0 2rem;
+      width: calc(100% - 2rem);
+      margin: 0 auto;
+      padding: 1.5rem 2rem;
    }
 
    .text_photo_container,
@@ -291,9 +386,14 @@
 
    .photo,
    .text_area,
-   .service_photo,
+   .service_showcase,
    .service_list {
       width: 100%;
+   }
+
+   .photo,
+   .text_area {
+      flex: 1 1 auto;
    }
 
    .text,
@@ -315,12 +415,16 @@
    .gallarie_widget,
    .service {
       font-size: 2.5rem;
+      width: calc(100% - 1.5rem);
+      margin: 0 auto;
+      padding: 1rem;
+      border-radius: 24px;
    }
 
    .aboutus,
    .gallarie_widget,
    .service {
-      padding: 0 1rem;
+      padding: 1rem;
    }
 
    .title,
@@ -370,13 +474,17 @@
       gap: 2rem;
    }
 
+   .service_showcase {
+      gap: 1.25rem;
+   }
+
    .service_list {
-      padding: 1rem 0 0;
+      padding: 0;
       gap: 1.5rem;
    }
 
    .service_item {
-      gap: 0.9rem;
+      padding: 1rem;
    }
 
    .service_button {
@@ -390,9 +498,23 @@
       height: 34px;
    }
 
+   .service_plus {
+      width: 1.8rem;
+      height: 1.8rem;
+      font-size: 1.35rem;
+   }
+
    .service_text {
-      padding-left: 2.8rem;
+      padding: 0.85rem 0 0 2.8rem;
       font-size: 1.15rem;
       line-height: 1.6;
+   }
+
+   .service_intro {
+      padding: 1.15rem 1.2rem;
+   }
+
+   .service_intro_text {
+      font-size: 1.05rem;
    }
 }

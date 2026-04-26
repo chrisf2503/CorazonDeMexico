@@ -1,35 +1,7 @@
 import { useEffect, useState } from 'react';
 import Navbar from './Components/nav.jsx';
+import { storyList } from './Components/storyList.jsx';
 import historyStyle from './CSS/history.module.css';
-import img1 from '../img/img1.png';
-import img3 from '../img/img3.png';
-
-const storySections = [
-    {
-        id: 'historia',
-        eyebrow: 'Tradicion Viva',
-        title: 'Nuestra Historia',
-        text: 'Mariachi Corazon de Mexico nace del deseo de conservar la emocion, la elegancia y la identidad de la musica mexicana en cada escenario. Desde Nueva York, el grupo ha llevado serenidad, celebracion y orgullo cultural a eventos donde cada cancion importa y cada detalle cuenta.',
-        image: img1,
-        imageAlt: 'Integrantes de Mariachi Corazon de Mexico durante una presentacion.',
-    },
-    {
-        id: 'porque',
-        eyebrow: 'Experiencia Unica',
-        title: 'Por Que Nosotros',
-        text: 'No se trata solo de tocar bien. Se trata de leer el momento, cuidar la energia del evento y crear una experiencia que se sienta intima, elegante y profundamente autentica. Nuestro repertorio, presencia y profesionalismo convierten la musica en un recuerdo vivo.',
-        image: img3,
-        imageAlt: 'Presentacion especial del mariachi en un evento.',
-    },
-    {
-        id: 'listos',
-        eyebrow: 'El Siguiente Paso',
-        title: 'Estas Listo',
-        text: 'Cuando llega el momento de elegir la musica de tu evento, hacemos que todo sea claro y cercano. Trabajamos contigo para adaptar la presentacion al tipo de celebracion, al ambiente que quieres crear y a la emocion que deseas dejar en tus invitados.',
-        image: img1,
-        imageAlt: 'Momento emotivo durante una interpretacion del mariachi.',
-    },
-];
 
 function History() {
     const [visibleSections, setVisibleSections] = useState({});
@@ -89,7 +61,7 @@ function History() {
             </header>
 
             <main className={historyStyle.story_layout}>
-                {storySections.map((section, index) => (
+                {storyList.map((section, index) => (
                     <section
                         key={section.id}
                         data-history-section={section.id}

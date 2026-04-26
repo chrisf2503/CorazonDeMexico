@@ -14,10 +14,15 @@
    padding: 1rem 2rem;
 }
 .logo {
-  	height: var(--height-100);
+   overflow: hidden;
+  	height: 250px;
   	width: min(435px, 100%);
   	position: relative;
   	object-fit: cover;
+}
+.logo_link {
+  	display: inline-flex;
+  	align-items: center;
 }
 .links {
    padding-right: 40px;
