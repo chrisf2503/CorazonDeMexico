@@ -14,20 +14,17 @@
    padding: 1rem 2rem;
 }
 .logo {
-   overflow: hidden;
-  	height: 250px;
+  	height: auto;
   	width: min(435px, 100%);
   	position: relative;
   	object-fit: cover;
 }
 .logo_link {
-  	display: inline-flex;
-  	align-items: center;
+  width: min(435px, 450px);
 }
 .links {
    padding-right: 40px;
   	width: min(759px, 100%);
-  	overflow: hidden;
    gap: 40px;
   	flex-shrink: 0;
   	display: flex;

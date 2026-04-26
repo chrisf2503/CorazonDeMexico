@@ -5,7 +5,7 @@ import homepageStyle from './CSS/home.module.css'
 import {serviceList} from './Components/serviceList.jsx'
 import img1 from '../img/img1.jpg'
 import img3 from '../img/img3.jpg'
-
+import logo from '../img/logo.mp4'
 function Home(){
     const [openServiceId, setOpenServiceId] = useState(null);
     const [visibleSections, setVisibleSections] = useState({});
@@ -58,7 +58,9 @@ function Home(){
             >
                 <Navbar/>
                 <div className={homepageStyle.video_container}>
-                    {/* Add some video here, go through PC */}
+                    <video autoPlay muted loop playsInline>
+                        <source src={logo} type="video/mp4"></source>
+                    </video>
                 </div>  
             </div>
 
