@@ -25,7 +25,7 @@ function Form(){
     };
 
     const validatePhone = (phone) => {
-        const phoneRegex = /^\+?[\d\s\-\(\)]{10,}$/;
+        const phoneRegex = /^\+?[\d\s\-()]{10,}$/;
         if (!phoneRegex.test(phone)) return "Phone number must be valid (at least 10 digits, can include spaces, dashes, parentheses).";
         return "";
     };

@@ -45,7 +45,7 @@
   	flex-shrink: 0;
   	padding: 1rem 0;
 }
-.discripton {
+.descripcion {
   	width: 100%;
   	max-width: 1440px;
     font-size: clamp(1.2rem, 3vw, 45px);

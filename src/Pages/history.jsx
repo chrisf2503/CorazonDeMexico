@@ -51,8 +51,8 @@ function History() {
             <header className={historyStyle.hero}>
                 <Navbar />
                 <div className={historyStyle.hero_inner}>
-                    <div className={historyStyle.hero_badge}>Historia • Emocion • Presencia</div>
-                    <h1 className={historyStyle.hero_title}>Una pagina con alma propia</h1>
+                    <div className={historyStyle.hero_badge}>Historia • Emoción • Presencia</div>
+                    <h1 className={historyStyle.hero_title}>Una página con alma propia</h1>
                     <p className={historyStyle.hero_text}>
                         Esta historia no aparece plana. Se revela con movimiento, brillo y presencia,
                         como una entrada al escenario antes del primer acorde.

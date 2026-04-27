@@ -12,8 +12,8 @@ function Contact(){
                 <div className={contactStyle.contact_hero}>
                     <div className={contactStyle.title}>Contáctanos</div>
                     <img src={contactImg} alt="Mariachi Corazón de México" className={contactStyle.hero_image} />
-                    <div className={contactStyle.discripton}>
-                        En Corazón de México, cada mensaje es el inicio de algo especial. Queremos conocer tu visión, entender cada detalle y acompañarte en la creación de un momento que realmente deje huella. Nuestro equipo está listo para brindarte atención cercana, claridad en cada paso y un servicio a la altura de tu evento. Escríbenos y comencemos a dar vida a una experiencia llena de emoción, elegancia y auténtico sentimiento mexicano.
+                    <div className={contactStyle.descripcion}>
+                        En Corazón de México, cada mensaje es el inicio de algo especial. Queremos conocer tu visión, entender cada detalle y acompañarte en la creación de un momento que realmente deje huella. Nuestro equipo está listo para brindarte atención cercana, claridad en cada paso y un servicio a la altura de tu evento. Escríbenos y comencemos a dar vida a una experiencia llena de emoción, elegancia y auténtico sentimiento mexicano.
                     </div>
                 </div>
             </div>

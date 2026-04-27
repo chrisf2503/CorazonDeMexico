@@ -1,0 +1,14 @@
+.gallary {
+    width: 100%;
+    position: relative;
+    background: linear-gradient(169.94deg, #000, #3c3c3c 59.94%, #403f3f 74.68%, #444);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 414px;
+    text-align: center;
+    font-size: var(--fs-128);
+    color: var(--color-white);
+    font-family: var(--font-im-fell-french-canon-sc);
+}
