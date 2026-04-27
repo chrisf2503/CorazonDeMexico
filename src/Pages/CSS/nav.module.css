@@ -31,10 +31,139 @@
    justify-content: flex-end;
 }
 
+.nav{
+  	width: 100%;
+  	position: relative;
+  	overflow: hidden;
+  	display: flex;
+   justify-content: space-between ;
+   gap:1.5rem;;
+  	align-items: center;
+  	text-align: center;
+  	font-size: var(--fs-32);
+  	color: var(--color-white);
+  	font-family: var(--font-im-fell-french-canon-sc);
+   box-sizing: border-box;
+   padding: 1rem 2rem;
+}
+.logo {
+  	height: auto;
+  	width: min(435px, 100%);
+  	position: relative;
+  	object-fit: cover;
+}
+.logo_link {
+  width: min(435px, 450px);
+}
+.links {
+   padding-right: 40px;
+  	width: min(759px, 100%);
+   gap: 40px;
+  	flex-shrink: 0;
+  	display: flex;
+   justify-content: flex-end;
+}
+
 .nosortos,.gallaria,.contacto {
   	position: relative;
   	overflow: hidden;
   	flex-shrink: 0;
+}
+
+.nosortos a,
+.gallaria a,
+.contacto a {
+  	color: var(--color-white);
+  	text-decoration: none;
+  	font-size: 1.25rem;
+  	font-weight: 500;
+  	padding: 0.75rem 1.5rem;
+  	border-radius: 25px;
+  	transition: all 0.3s ease;
+  	position: relative;
+  	display: inline-block;
+  	border: 2px solid transparent;
+  	background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  	backdrop-filter: blur(10px);
+  	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.nosortos a:hover,
+.gallaria a:hover,
+.contacto a:hover {
+  	transform: translateY(-2px);
+  	box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  	border-color: rgba(255, 215, 0, 0.5);
+  	background: linear-gradient(145deg, rgba(255, 215, 0, 0.1), rgba(255, 255, 255, 0.1));
+}
+
+.nosortos a::before,
+.gallaria a::before,
+.contacto a::before {
+  	content: '';
+  	position: absolute;
+  	bottom: 0;
+  	left: 50%;
+  	width: 0;
+  	height: 2px;
+  	background: linear-gradient(90deg, #FFD700, #FFA500);
+  	transition: all 0.3s ease;
+  	transform: translateX(-50%);
+}
+
+.nosortos a:hover::before,
+.gallaria a:hover::before,
+.contacto a:hover::before {
+  	width: 80%;
+}
+
+.gallaria a {
+  	background: linear-gradient(145deg, rgba(255, 215, 0, 0.1), rgba(255, 255, 255, 0.05));
+  	border: 2px solid rgba(255, 215, 0, 0.3);
+}
+
+.gallaria a:hover {
+  	background: linear-gradient(145deg, rgba(255, 215, 0, 0.2), rgba(255, 255, 255, 0.1));
+  	border-color: rgba(255, 215, 0, 0.8);
+}
+
+.nav_link {
+  	color: var(--color-white);
+  	text-decoration: none;
+  	font-size: 1.25rem;
+  	font-weight: 500;
+  	padding: 0.75rem 1.5rem;
+  	border-radius: 25px;
+  	transition: all 0.3s ease;
+  	position: relative;
+  	display: inline-block;
+  	border: 2px solid transparent;
+  	background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  	backdrop-filter: blur(10px);
+  	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.nav_link:hover {
+  	transform: translateY(-2px);
+  	box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  	border-color: rgba(255, 215, 0, 0.5);
+  	background: linear-gradient(145deg, rgba(255, 215, 0, 0.1), rgba(255, 255, 255, 0.1));
+}
+
+.nav_link::before {
+  	content: '';
+  	position: absolute;
+  	bottom: 0;
+  	left: 50%;
+  	width: 0;
+  	height: 2px;
+  	background: linear-gradient(90deg, #FFD700, #FFA500);
+  	transition: all 0.3s ease;
+  	transform: translateX(-50%);
+}
+
+.nav_link:hover::before {
+  	width: 80%;
 }
 
 @media (max-width: 900px) {
