@@ -12,3 +12,9 @@
     color: var(--color-white);
     font-family: var(--font-im-fell-french-canon-sc);
 }
+.title{
+    font-size: 110px;
+}
+.discription{
+    font-size: 40px;
+}
