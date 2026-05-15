@@ -80,9 +80,12 @@
     position: relative;
     z-index: 1;
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
     gap: 7rem;
-    padding: 0 4rem 6rem;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .story_section {
@@ -91,12 +94,14 @@
     grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
     align-items: center;
     gap: 3rem;
-    padding: 2rem;
+    padding: 0;
     border: 1px solid rgba(255, 255, 255, 0.09);
     border-radius: 36px;
     background: linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
     box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
     backdrop-filter: blur(14px);
+    width: min(1550px, 100%);
+    margin: 0 auto;
 }
 
 .story_section_reverse {
@@ -133,6 +138,9 @@
     overflow: hidden;
     border-radius: 28px;
     min-height: 28rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .media_ring {
@@ -163,9 +171,13 @@
 .story_copy {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: center;
     gap: 1.2rem;
-    text-align: left;
+    text-align: center;
+    width: 100%;
+    padding: 3rem;
+    box-sizing: border-box;
 }
 
 .story_eyebrow {
@@ -191,11 +203,19 @@
 .cta_panel {
     position: relative;
     overflow: hidden;
-    padding: 3rem 2rem;
+    padding: 0;
     border-radius: 32px;
     text-align: center;
     background: linear-gradient(169.94deg, rgba(0, 0, 0, 0.92), rgba(60, 60, 60, 0.88) 59.94%, rgba(64, 63, 63, 0.84) 74.68%, rgba(68, 68, 68, 0.82));
     border: 1px solid rgba(255, 255, 255, 0.14);
+    width: min(1550px, 100%);
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 14rem;
 }
 
 .cta_glow {
@@ -219,6 +239,18 @@
     color: rgba(255, 255, 255, 0.78);
 }
 
+.cta_content {
+    width: 100%;
+    padding: 3rem;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
 .cta_text {
     position: relative;
     margin: 0 auto;
@@ -239,7 +271,6 @@
 
 @media (max-width: 980px) {
     .story_layout {
-        padding: 0 1.5rem 4rem;
         gap: 4rem;
     }
 
@@ -269,17 +300,19 @@
         font-size: 0.72rem;
     }
 
-    .story_layout {
-        padding: 0 1rem 3rem;
-    }
+    
 
     .story_section {
         width: calc(100% - 1.5rem);
         margin: 0 auto;
-        padding: 1.2rem;
+        padding: 0;
         border-radius: 24px;
         grid-template-columns: 1fr;
         gap: 2rem;
+    }
+
+    .story_copy {
+        padding: 2rem 1.25rem;
     }
 
     .story_section_reverse {
@@ -304,7 +337,11 @@
     .cta_panel {
         width: calc(100% - 1.5rem);
         margin: 0 auto;
-        padding: 2.25rem 1.2rem;
+        padding: 0;
         border-radius: 24px;
+    }
+
+    .cta_content {
+        padding: 2.25rem 1.2rem;
     }
 }
