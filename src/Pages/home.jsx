@@ -6,9 +6,11 @@ import {serviceList} from './Components/serviceList.jsx'
 import img1 from '../img/img1.jpg'
 import img3 from '../img/img3.jpg'
 import logo from '../img/logo.mp4'
+import { imgList2 } from './Components/imgList2.jsx';
 function Home(){
     const [openServiceId, setOpenServiceId] = useState(null);
     const [visibleSections, setVisibleSections] = useState({});
+    const [currentSlide, setCurrentSlide] = useState(0);
 
     const handleServiceClick = (serviceId) => {
         setOpenServiceId(currentId => currentId === serviceId ? null : serviceId);
@@ -40,6 +42,20 @@ function Home(){
             sections.forEach((section) => observer.unobserve(section));
             observer.disconnect();
         };
+    }, []);
+
+    useEffect(() => {
+        if (!imgList2 || imgList2.length === 0) {
+            return;
+        }
+
+        const interval = setInterval(() => {
+            setCurrentSlide((prevSlide) => (
+                prevSlide + 1
+            ) % imgList2.length);
+        }, 3000);
+
+        return () => clearInterval(interval);
     }, []);
 
     const getSectionClassName = (sectionName, baseClassName) => {
@@ -92,8 +108,20 @@ function Home(){
                     <div className={homepageStyle.text2}>Nuestro trabajo refleja la pasión y dedicación que entregamos en cada presentación, capturada en momentos llenos de emoción y autenticidad. A través de estas imágenes, podrás apreciar la energía, la elegancia y la conexión que llevamos a cada evento. Cada fotografía cuenta una historia única donde la música y el corazón de México se hacen presentes.</div>
                 </div>
                 <div className={homepageStyle.slide_show_contianer}>
-                    {/* Here it'll be a list of images and itll pan through */}
-                    <div className="slide-show-right">Próximamente: galería de imágenes</div>
+                    {
+                        imgList2.map((image, index) => (
+                            <img
+                                key={image.id}
+                                src={image.img}
+                                alt={`slide-${image.id}`}
+                                className={`${homepageStyle.slide_image} ${
+                                    currentSlide === index
+                                        ? homepageStyle.active_slide
+                                        : homepageStyle.inactive_slide
+                                }`}
+                            />
+                        ))
+                    }
                 </div>
             </div>
 
