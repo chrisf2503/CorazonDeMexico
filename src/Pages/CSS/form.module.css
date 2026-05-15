@@ -3,7 +3,7 @@
     flex-shrink: 0;
     text-align: center;
     font-size: var(--fs-32);
-    color: black;
+    color: white;
     font-family: var(--font-jacques-francois);
     width: min(100%, 574px);
 }

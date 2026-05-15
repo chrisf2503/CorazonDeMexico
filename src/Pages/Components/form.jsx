@@ -87,7 +87,7 @@ function Form(){
     return (
         <div className={formStyle.form_container}>
             <form className={formStyle.form} onSubmit={handleSubmit}>
-                <div className={formStyle.title}>Contact me</div>
+                <div className={formStyle.title}>Contact Us</div>
                 <div className={formStyle.container}>
                     <div className={formStyle.subtitle}>
                         <label className={formStyle.name}>Full Name</label>
