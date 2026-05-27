@@ -87,56 +87,76 @@ function Form(){
     return (
         <div className={formStyle.form_container}>
             <form className={formStyle.form} onSubmit={handleSubmit}>
-                <div className={formStyle.title}>Contact Us</div>
+                <h2 className={formStyle.title}>Contáctanos</h2>
                 <div className={formStyle.container}>
                     <div className={formStyle.subtitle}>
-                        <label className={formStyle.name}>Full Name</label>
+                        <label htmlFor="name" className={formStyle.name}>Nombre Completo</label>
                     </div>
                     <input 
+                    id="name"
                     className={formStyle.value}
+                    type="text"
                     name="name" 
-                    value = {formValue.name} 
-                    onChange = {handleChange}
-                    placeholder="Enter Here"/>
+                    value={formValue.name} 
+                    onChange={handleChange}
+                    placeholder="Ingresa tu nombre completo"
+                    autoComplete="name"
+                    required
+                    />
                     {errors.name && <div className={formStyle.error}>{errors.name}</div>}
                 </div>
                 <div className={formStyle.container}>
                     <div className={formStyle.subtitle}>
-                        <label className={formStyle.name}>Email</label>
+                        <label htmlFor="email" className={formStyle.name}>Correo Electrónico</label>
                     </div>
                     <input 
+                    id="email"
                     className={formStyle.value}
+                    type="email"
                     name="email" 
-                    value = {formValue.email} 
-                    onChange = {handleChange}
-                    placeholder="Enter Here"/>
+                    value={formValue.email} 
+                    onChange={handleChange}
+                    placeholder="Ingresa tu correo electrónico"
+                    autoComplete="email"
+                    required
+                    />
                     {errors.email && <div className={formStyle.error}>{errors.email}</div>}
                 </div>
                 <div className={formStyle.container}>
                     <div className={formStyle.subtitle}>
-                        <label className={formStyle.name}>Phone</label>
+                        <label htmlFor="phone" className={formStyle.name}>Número Telefónico</label>
                     </div>
                     <input 
+                    id="phone"
                     className={formStyle.value}
+                    type="tel"
                     name="phone" 
-                    value = {formValue.phone} 
-                    onChange = {handleChange}
-                    placeholder="Enter Here"/>
+                    value={formValue.phone} 
+                    onChange={handleChange}
+                    placeholder="Ingresa tu número telefónico"
+                    autoComplete="tel"
+                    required
+                    />
                     {errors.phone && <div className={formStyle.error}>{errors.phone}</div>}
                 </div>
                 <div className={formStyle.container}>
                     <div className={formStyle.subtitle}>
-                        <label className={formStyle.name}>Message</label>
+                        <label htmlFor="message" className={formStyle.name}>Mensaje</label>
                     </div>
                     <textarea 
+                    id="message"
                     className={formStyle.value2}
                     name="message" 
-                    value = {formValue.message} 
-                    onChange = {handleChange}
-                    placeholder="Enter Here"/>
+                    value={formValue.message} 
+                    onChange={handleChange}
+                    placeholder="Cuéntanos sobre tu evento"
+                    required
+                    />
                     {errors.message && <div className={formStyle.error}>{errors.message}</div>}
                 </div>
-                <button type="submit" className={formStyle.submit}>Submit</button>
+                <button type="submit" className={formStyle.submit} aria-label="Enviar formulario de contacto">
+                    Enviar
+                </button>
                 {submitStatus && <div className={formStyle.status}>{submitStatus}</div>}
             </form>
         </div>

@@ -67,8 +67,8 @@ function Home(){
     };
 
     return (
-        <div className={homepageStyle.homepage}>
-            <div
+        <main className={homepageStyle.homepage}>
+            <header
                 data-fade-section="starter"
                 className={getSectionClassName('starter', homepageStyle.starter)}
             >
@@ -78,31 +78,38 @@ function Home(){
                         <source src={logo} type="video/mp4"></source>
                     </video>
                 </div>  
-            </div>
+            </header>
 
-            <div
+            <section
                 data-fade-section="aboutus"
                 className={getSectionClassName('aboutus', homepageStyle.aboutus)}
             >
                 <div className={homepageStyle.title}>
-                    <div className={homepageStyle.quines_somos}>¿Quiénes somos?</div>
+                    <h1 className={homepageStyle.quines_somos}>
+                        Mariachi Corazón de México
+                    </h1>
                 </div>
                 <div className={homepageStyle.text_photo_container}>
                     <div className={homepageStyle.photo}>
-                        <img className={homepageStyle.image1} src = {img1} alt="" />
+                        <img
+                            className={homepageStyle.image1}
+                            src={img1}
+                            alt="Mariachi Corazón de México durante una presentación en Nueva York"
+                            loading="lazy"
+                        />
                     </div>
                     <div className={homepageStyle.text_area}>
                         <div className={homepageStyle.text}>Mariachi Corazón de México es una agrupación que lleva en cada nota el alma, la tradición y el orgullo de la música mexicana. Con base en Nueva York, transforman cada evento en una experiencia llena de emoción, elegancia y autenticidad. Su compromiso va más allá de interpretar canciones: crean momentos que conectan profundamente con cada persona presente. Con un repertorio versátil y una presencia impecable, honran sus raíces mientras elevan cada celebración. Más que música, son una expresión viva del corazón de México.</div>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <div
+            <section
                 data-fade-section="gallarie"
                 className={getSectionClassName('gallarie', homepageStyle.gallarie_widget)}
             >
                 <div className={homepageStyle.title}>
-                    <div className={homepageStyle.nuestro_trabajo}>Nuestro Trabajo</div>
+                    <h2 className={homepageStyle.nuestro_trabajo}>Nuestro Trabajo</h2>
                 </div>
                 <div className={homepageStyle.gallarie_text}>
                     <div className={homepageStyle.text2}>Nuestro trabajo refleja la pasión y dedicación que entregamos en cada presentación, capturada en momentos llenos de emoción y autenticidad. A través de estas imágenes, podrás apreciar la energía, la elegancia y la conexión que llevamos a cada evento. Cada fotografía cuenta una historia única donde la música y el corazón de México se hacen presentes.</div>
@@ -113,7 +120,8 @@ function Home(){
                             <img
                                 key={image.id}
                                 src={image.img}
-                                alt={`slide-${image.id}`}
+                                alt={`Mariachi Corazón de México presentación ${image.id}`}
+                                loading="lazy"
                                 className={`${homepageStyle.slide_image} ${
                                     currentSlide === index
                                         ? homepageStyle.active_slide
@@ -123,14 +131,14 @@ function Home(){
                         ))
                     }
                 </div>
-            </div>
+            </section>
 
-            <div
+            <section
                 data-fade-section="service"
                 className={getSectionClassName('service', homepageStyle.service)}
             >
                 <div className={homepageStyle.title2}>
-                    <div className={homepageStyle.servicio}>Servicios</div>
+                    <h2 className={homepageStyle.servicio}>Servicios</h2>
                 </div>
                 <div className={homepageStyle.service_container}>
                     <div className={homepageStyle.service_showcase}>
@@ -139,7 +147,8 @@ function Home(){
                             <img
                                 className={homepageStyle.img5}
                                 src={img3}
-                                alt="Mariachi Corazón de México durante una presentación."
+                                alt="Mariachi Corazón de México tocando música mariachi en un evento"
+                                loading="lazy"
                             />
                         </div>
                         
@@ -169,8 +178,8 @@ function Home(){
                        }
                     </ul>
                 </div>
-            </div>
-        </div>
+            </section>
+        </main>
     )
 }
 export default Home;

@@ -6,22 +6,27 @@ import contactImg from '../img/img7.jpg';
 function Contact(){
 
     return (
-        <div className={contactStyle.Contact}>
+        <main className={contactStyle.Contact}>
             <div className={contactStyle.hero}>
                 <Navbar/>
                 <div className={contactStyle.contact_hero}>
-                    <div className={contactStyle.title}>Contáctanos</div>
-                    <img src={contactImg} alt="Mariachi Corazón de México" className={contactStyle.hero_image} />
-                    <div className={contactStyle.descripcion}>
-                        En Corazón de México, cada mensaje es el inicio de algo especial. Queremos conocer tu visión, entender cada detalle y acompañarte en la creación de un momento que realmente deje huella. Nuestro equipo está listo para brindarte atención cercana, claridad en cada paso y un servicio a la altura de tu evento. Escríbenos y comencemos a dar vida a una experiencia llena de emoción, elegancia y auténtico sentimiento mexicano.
-                    </div>
+                    <h1 className={contactStyle.title}>Contáctanos</h1>
+                    <img
+                        src={contactImg}
+                        alt="Mariachi Corazón de México durante una presentación en vivo en Nueva York"
+                        className={contactStyle.hero_image}
+                        loading="lazy"
+                    />
+                    <p className={contactStyle.descripcion}>
+                        Ponte en contacto con Mariachi Corazón de México para bodas, serenatas, cumpleaños, eventos privados y celebraciones especiales en Nueva York y áreas cercanas. Nuestro equipo está listo para ayudarte a crear una experiencia auténtica, elegante e inolvidable.
+                    </p>
                 </div>
             </div>
-            <div className={contactStyle.from_social_container}>
+            <section className={contactStyle.from_social_container}>
                 <Form/>
                 <Social/>
-            </div>   
-        </div>
+            </section>   
+        </main>
     )
 }
 

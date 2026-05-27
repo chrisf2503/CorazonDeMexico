@@ -44,18 +44,17 @@ function History() {
     };
 
     return (
-        <div className={historyStyle.page}>
+        <main className={historyStyle.page}>
             <div className={historyStyle.background_glow_top}></div>
             <div className={historyStyle.background_glow_bottom}></div>
 
             <header className={historyStyle.hero}>
                 <Navbar />
                 <div className={historyStyle.hero_inner}>
-                    <div className={historyStyle.hero_badge}>Historia • Emoción • Presencia</div>
+                    <p className={historyStyle.hero_badge}>Historia • Emoción • Presencia</p>
                     <h1 className={historyStyle.hero_title}>Una página con alma propia</h1>
                     <p className={historyStyle.hero_text}>
-                        Esta historia no aparece plana. Se revela con movimiento, brillo y presencia,
-                        como una entrada al escenario antes del primer acorde.
+                        Conoce la historia de Mariachi Corazón de México, una agrupación dedicada a preservar la emoción, tradición y elegancia de la música mariachi en Nueva York y sus alrededores.
                     </p>
                 </div>
             </header>
@@ -69,10 +68,15 @@ function History() {
                     >
                         <div className={historyStyle.story_media}>
                             <div className={historyStyle.media_ring}></div>
-                            <img className={historyStyle.story_image} src={section.image} alt={section.imageAlt} />
+                            <img
+                                className={historyStyle.story_image}
+                                src={section.image}
+                                alt={section.imageAlt}
+                                loading="lazy"
+                            />
                         </div>
                         <div className={historyStyle.story_copy}>
-                            <div className={historyStyle.story_eyebrow}>{section.eyebrow}</div>
+                            <p className={historyStyle.story_eyebrow}>{section.eyebrow}</p>
                             <h2 className={historyStyle.story_title}>{section.title}</h2>
                             <p className={historyStyle.story_text}>{section.text}</p>
                         </div>
@@ -81,13 +85,13 @@ function History() {
 
                 <section className={historyStyle.cta_panel}>
                     <div className={historyStyle.cta_glow}></div>
-                    <div className={historyStyle.cta_label}>Listos Para Crear Algo Inolvidable</div>
+                    <h2 className={historyStyle.cta_label}>Listos Para Crear Algo Inolvidable</h2>
                     <p className={historyStyle.cta_text}>
                         Cada evento tiene su propio ritmo. Nosotros llegamos para convertirlo en una experiencia que se recuerda.
                     </p>
                 </section>
             </main>
-        </div>
+        </main>
     );
 }
 
