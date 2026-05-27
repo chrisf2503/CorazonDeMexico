@@ -56,17 +56,17 @@ function Gallary(){
     };
 
     return (
-        <div className={gallaryStyle.page}>
+        <main className={gallaryStyle.page}>
             <div className={gallaryStyle.background_glow_top}></div>
             <div className={gallaryStyle.background_glow_bottom}></div>
 
             <header className={gallaryStyle.hero}>
                 <Navbar/>
                 <div className={gallaryStyle.hero_inner}>
-                    <div className={gallaryStyle.hero_badge}>Galería • Momentos • Pasión</div>
+                    <p className={gallaryStyle.hero_badge}>Galería • Momentos • Pasión</p>
                     <h1 className={gallaryStyle.hero_title}>Galería de Corazón</h1>
                     <p className={gallaryStyle.hero_text}>
-                        Cada imagen en esta galería guarda más que un instante: refleja el alma de Corazón de México en cada nota, cada sonrisa y cada emoción compartida.
+                        Explora la galería oficial de Mariachi Corazón de México y descubre presentaciones, colaboraciones y momentos inolvidables en eventos y celebraciones en Nueva York.
                     </p>
                 </div>
             </header>
@@ -76,7 +76,7 @@ function Gallary(){
                 className={getSectionClassName('featured', gallaryStyle.featured_section)}
             >
                 <div className={gallaryStyle.section_content}>
-                    <div className={gallaryStyle.section_eyebrow}>Colaboraciones</div>
+                    <p className={gallaryStyle.section_eyebrow}>Colaboraciones</p>
                     <h2 className={gallaryStyle.section_title}>Momentos de Honor</h2>
                     <p className={gallaryStyle.section_text}>
                         Es un verdadero honor para Corazón de México ser parte y colaborar con grandes artistas que confían en nuestro trabajo y en la esencia que llevamos a cada presentación. Hemos tenido el privilegio de compartir momentos especiales junto a figuras como <a href="https://youtu.be/17_xZbL-yTo?si=F4iHU7OCNEwZv_KT">Natalia Jimenez</a>, <a href="https://youtu.be/BgsEVuKFsVs?si=JAHKhWUPd1jprW42">Maribel Guardia</a> y muchos más, creando experiencias únicas que celebran la música y la cultura.
@@ -85,11 +85,19 @@ function Gallary(){
                 <div className={gallaryStyle.artistList}>
                     <div className={gallaryStyle.artistCard}>
                         <div className={gallaryStyle.artist_ring}></div>
-                        <img src={natalia} alt="Natalia Jimenez" />
+                        <img
+                            src={natalia}
+                            alt="Natalia Jiménez colaborando con Mariachi Corazón de México"
+                            loading="lazy"
+                        />
                     </div>
                     <div className={gallaryStyle.artistCard}>
                         <div className={gallaryStyle.artist_ring}></div>
-                        <img src={maribel} alt="Maribel Guardia" />
+                        <img
+                            src={maribel}
+                            alt="Maribel Guardia junto a Mariachi Corazón de México"
+                            loading="lazy"
+                        />
                     </div>
                 </div>
             </section>
@@ -99,7 +107,7 @@ function Gallary(){
                 className={getSectionClassName('slideshow', gallaryStyle.slideshow_section)}
             >
                 <div className={gallaryStyle.section_content}>
-                    <div className={gallaryStyle.section_eyebrow}>Nuestro Trabajo</div>
+                    <p className={gallaryStyle.section_eyebrow}>Nuestro Trabajo</p>
                     <h2 className={gallaryStyle.section_title}>Lo Que Hacemos con el Corazón</h2>
                     <p className={gallaryStyle.section_text}>
                         Cada presentación que realizamos nace desde el alma y se entrega con auténtica pasión. En Corazón de México, no solo interpretamos música, sino que creamos momentos que conectan, emocionan y permanecen en la memoria. Nuestro compromiso es brindar calidad, elegancia y sentimiento en cada detalle.
@@ -110,7 +118,8 @@ function Gallary(){
                         <img
                             key={image.id}
                             src={image.img}
-                            alt={`Slide ${image.id}`}
+                            alt={`Mariachi Corazón de México presentación ${image.id}`}
+                            loading="lazy"
                             className={`${gallaryStyle.slideImage} ${index === currentImageIndex ? gallaryStyle.active : ''}`}
                         />
                     )}
@@ -123,17 +132,22 @@ function Gallary(){
             >
                 <div className={gallaryStyle.cta_media}>
                     <div className={gallaryStyle.cta_ring}></div>
-                    <img src={violenImg} alt="Mariachi Corazón de México" className={gallaryStyle.cta_image} />
+                    <img
+                        src={violenImg}
+                        alt="Mariachi Corazón de México durante una presentación musical elegante"
+                        className={gallaryStyle.cta_image}
+                        loading="lazy"
+                    />
                 </div>
                 <div className={gallaryStyle.cta_copy}>
-                    <div className={gallaryStyle.section_eyebrow}>Tu Momento</div>
+                    <p className={gallaryStyle.section_eyebrow}>Tu Momento</p>
                     <h2 className={gallaryStyle.section_title}>¿Qué te parece?</h2>
                     <p className={gallaryStyle.section_text}>
                         Si lo que ves conecta contigo, imagina la experiencia en vivo. En Corazón de México, cada presentación se adapta a tu evento para hacerlo único y memorable. Estamos listos para llevar esa misma emoción a tu celebración. Solo falta dar el siguiente paso: contáctanos.
                     </p>
                 </div>
             </section>
-        </div>
+        </main>
     )
 }
 
