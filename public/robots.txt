@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# Point search engines to the sitemap
+Sitemap: https://www.xn--corazndemxiconyc-jqb9o.com/sitemap.xml
+Host: www.xn--corazndemxiconyc-jqb9o.com
