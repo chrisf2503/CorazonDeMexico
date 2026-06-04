@@ -2,6 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { SpeedInsights } from "@vercel/speed-insights/react"
+import { Analytics } from "@vercel/analytics/react"
 import './index.css'
 import Home from './Pages/home.jsx'
 import History from './Pages/history.jsx'
@@ -16,6 +17,7 @@ createRoot(document.getElementById('root')).render(
       <Route path='/Galería' element={<Gallary/>}/>
     </Routes>
     <SpeedInsights />
+    <Analytics />
   </BrowserRouter>, 
   
 )
