@@ -16,12 +16,6 @@ function Social(){
         <section className={socialStyle.social} aria-label="Redes sociales y contacto de Mariachi Corazón de México">
             {socialList.map(list =>(
                 <div key={list.id} className={socialStyle.container}>
-                    <img
-                        src={list.img}
-                        alt={`${list.id} de Mariachi Corazón de México`}
-                        className={socialStyle.icon}
-                        loading="lazy"
-                    />
                     <a
                         href={list.link}
                         className={socialStyle.link}
@@ -29,8 +23,17 @@ function Social(){
                         rel={list.link.startsWith('http') ? 'noopener noreferrer' : undefined}
                         aria-label={`${list.id} de Mariachi Corazón de México`}
                     >
-                        {list.id}
+                        <img
+                        src={list.img}
+                        alt={`${list.id} de Mariachi Corazón de México`}
+                        className={socialStyle.icon}
+                        loading="lazy"
+                        />  
+                       <p>
+                            {list.id}
+                       </p>
                     </a>
+                    
                 </div>
             ))}
         </section>
