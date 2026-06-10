@@ -7,9 +7,9 @@ export const storyList = [
         id: 'historia',
         eyebrow: 'Tradición Viva',
         title: 'Nuestra Historia',
-        text: 'Mariachi Corazon de Mexico nace del deseo de conservar la emoción, la elegancia y la identidad de la música mexicana en cada escenario. Desde Nueva York, el grupo ha llevado serenidad, celebración y orgullo cultural a eventos donde cada canción importa y cada detalle cuenta.',
+        text: 'Mariachi Corazón de México nace del deseo de conservar la emoción, la elegancia y la identidad de la música mexicana en cada escenario. Desde Nueva York, el grupo ha llevado serenatas, celebración y orgullo cultural a eventos donde cada canción importa y cada detalle cuenta.',
         image: img1,
-        imageAlt: 'Integrantes de Mariachi Corazon de Mexico durante una presentación.',
+        imageAlt: 'Integrantes de Mariachi Corazón de México durante una presentación.',
     },
     {
         id: 'porque',
