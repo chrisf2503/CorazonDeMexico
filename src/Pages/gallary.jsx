@@ -158,6 +158,7 @@ function Gallary(){
                             <div key={list.id} className={gallaryStyle.container}>
                                 <video
                                     src={list.link}
+                                    poster={list.poster}
                                     className={gallaryStyle.video}
                                     controls
                                     preload="metadata"
