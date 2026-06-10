@@ -1,14 +1,17 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Navbar from "./Components/nav";
 import gallaryStyle from './CSS/gallary.module.css';
 import { imgList } from './Components/imgList';
 import natalia from '../img/nataliaJimenez.png';
 import maribel from '../img/maribelGuardia.png';
 import violenImg from '../img/violen.jpg';
+import { videoList } from './Components/videoList';
 
 function Gallary(){
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
     const [visibleSections, setVisibleSections] = useState({});
+    const videoSectionRef = useRef(null);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -55,6 +58,42 @@ function Gallary(){
         return `${baseClassName} ${gallaryStyle.section_reveal} ${visibilityClassName}`;
     };
 
+    const handleVideoScroll = () => {
+        const carousel = videoSectionRef.current;
+        if (!carousel) return;
+
+        const cards = Array.from(carousel.children);
+        const carouselBounds = carousel.getBoundingClientRect();
+        const carouselCenter = carouselBounds.left + carouselBounds.width / 2;
+        let closestIndex = 0;
+        let closestDistance = Infinity;
+
+        cards.forEach((card, index) => {
+            const cardBounds = card.getBoundingClientRect();
+            const cardCenter = cardBounds.left + cardBounds.width / 2;
+            const distance = Math.abs(carouselCenter - cardCenter);
+
+            if (distance < closestDistance) {
+                closestDistance = distance;
+                closestIndex = index;
+            }
+        });
+
+        setCurrentVideoIndex(closestIndex);
+    };
+
+    const scrollToVideo = (index) => {
+        const carousel = videoSectionRef.current;
+        const card = carousel?.children[index];
+
+        if (!carousel || !card) return;
+
+        carousel.scrollTo({
+            left: card.offsetLeft - carousel.offsetLeft,
+            behavior: 'smooth',
+        });
+    };
+
     return (
         <main className={gallaryStyle.page}>
             <div className={gallaryStyle.background_glow_top}></div>
@@ -79,7 +118,7 @@ function Gallary(){
                     <p className={gallaryStyle.section_eyebrow}>Colaboraciones</p>
                     <h2 className={gallaryStyle.section_title}>Momentos de Honor</h2>
                     <p className={gallaryStyle.section_text}>
-                        Es un verdadero honor para Corazón de México ser parte y colaborar con grandes artistas que confían en nuestro trabajo y en la esencia que llevamos a cada presentación. Hemos tenido el privilegio de compartir momentos especiales junto a figuras como <a href="https://youtu.be/17_xZbL-yTo?si=F4iHU7OCNEwZv_KT">Natalia Jimenez</a>, <a href="https://youtu.be/BgsEVuKFsVs?si=JAHKhWUPd1jprW42">Maribel Guardia</a> y muchos más, creando experiencias únicas que celebran la música y la cultura.
+                        Es un verdadero honor para Corazón de México ser parte y colaborar con grandes artistas que confían en nuestro trabajo y en la esencia que llevamos a cada presentación. Hemos tenido el privilegio de compartir momentos especiales junto a figuras como <a href="https://youtu.be/17_xZbL-yTo?si=F4iHU7OCNEwZv_KT">Natalia Jiménez</a>, <a href="https://youtu.be/BgsEVuKFsVs?si=JAHKhWUPd1jprW42">Maribel Guardia</a> y muchos más, creando experiencias únicas que celebran la música y la cultura.
                     </p>
                 </div>
                 <div className={gallaryStyle.artistList}>
@@ -101,7 +140,51 @@ function Gallary(){
                     </div>
                 </div>
             </section>
-
+            <section
+                className={gallaryStyle.video_container}
+            >
+                <div className={gallaryStyle.section_content}>
+                    <p className={gallaryStyle.section_eyebrow}>Grabaciones en Video</p>
+                    <h2 className={gallaryStyle.section_title}>Armonía Perfecta</h2>
+                    <p className={gallaryStyle.section_text}>Cada presentación combina tradición, pasión y excelencia musical para crear momentos inolvidables que conectan con el corazón de cada invitado. Con un repertorio cuidadosamente seleccionado y una presencia profesional, transformamos bodas, serenatas, celebraciones y eventos especiales en experiencias llenas de emoción y elegancia. Permítanos ser la armonía perfecta que haga de su ocasión un recuerdo que perdure por generaciones.</p>
+                </div>
+                <div
+                    ref={videoSectionRef}
+                    className={gallaryStyle.video_section}
+                    onScroll={handleVideoScroll}
+                >
+                    {
+                        videoList.map(list => (
+                            <div key={list.id} className={gallaryStyle.container}>
+                                <video
+                                    src={list.link}
+                                    className={gallaryStyle.video}
+                                    controls
+                                    preload="metadata"
+                                    playsInline
+                                />
+                                <div className={gallaryStyle.video_name}>
+                                    <h5 className={gallaryStyle.name}>{list.name}</h5>
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+                <div className={gallaryStyle.video_dots} aria-label="Navegación del carrusel de videos">
+                    {videoList.map((list, index) => (
+                        <button
+                            key={list.id}
+                            type="button"
+                            className={`${gallaryStyle.video_dot} ${
+                                index === currentVideoIndex ? gallaryStyle.video_dot_active : ''
+                            }`}
+                            aria-label={`Ir al video ${index + 1}: ${list.name}`}
+                            aria-current={index === currentVideoIndex ? 'true' : undefined}
+                            onClick={() => scrollToVideo(index)}
+                        />
+                    ))}
+                </div>
+            </section>
             <section 
                 data-gallery-section="slideshow" 
                 className={getSectionClassName('slideshow', gallaryStyle.slideshow_section)}
