@@ -50,6 +50,30 @@ function Gallary(){
         };
     }, []);
 
+    useEffect(() => {
+        const carousel = videoSectionRef.current;
+        if (!carousel) return undefined;
+
+        const keepActiveVideoCentered = () => {
+            const card = carousel.children[currentVideoIndex];
+            if (!card) return;
+
+            carousel.scrollTo({
+                left: card.offsetLeft - carousel.offsetLeft,
+                behavior: 'auto',
+            });
+        };
+
+        const resizeObserver = new ResizeObserver(keepActiveVideoCentered);
+        resizeObserver.observe(carousel);
+        window.addEventListener('orientationchange', keepActiveVideoCentered);
+
+        return () => {
+            resizeObserver.disconnect();
+            window.removeEventListener('orientationchange', keepActiveVideoCentered);
+        };
+    }, [currentVideoIndex]);
+
     const getSectionClassName = (sectionId, baseClassName) => {
         const visibilityClassName = visibleSections[sectionId]
             ? gallaryStyle.section_visible
