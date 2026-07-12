@@ -50,13 +50,14 @@
 
 .value {
     border-radius: 35px;
-    background-color: azure;
+    background-color: #f0ffff;
     width: min(550px, 100%);
     height: 66px;
     overflow: hidden;
     text-align: left;
     font-size: 20px;
-    color: var(--color-darkslategray);
+    color: #1f2933;
+    caret-color: #1f2933;
     box-sizing: border-box;
     padding: 0 12px;
 }
@@ -66,14 +67,20 @@
     height: 250px;
     position: relative;
     border-radius: 10px;
-    background-color: azure;
+    background-color: #f0ffff;
     overflow: hidden;
     text-align: left;
     font-size: 20px;
-    color: var(--color-darkslategray);
+    color: #1f2933;
+    caret-color: #1f2933;
     font-family: var(--font-jacques-francois);
     box-sizing: border-box;
     padding: 12px;
+}
+.value::placeholder,
+.value2::placeholder {
+    color: #5f6c72;
+    opacity: 1;
 }
 
 .submit {
@@ -84,6 +91,8 @@
     border-color: unset;
     margin-bottom: 8px;
     margin-top: 8px;
+    color: white;
+    cursor: pointer;
 }
 
 /* CHANGED: mobile form scaling */
@@ -122,4 +131,8 @@
     margin-top: 10px;
     font-size: 14px;
     text-align: center;
+    color: #111111;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 8px;
+    padding: 8px 12px;
 }

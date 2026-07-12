@@ -1,37 +1,62 @@
 import { useState } from "react";
 import formStyle from "../CSS/form.module.css";
 import emailjs from '@emailjs/browser';
+
+const getCurrentDateTimeValue = () => {
+    const now = new Date();
+    const offset = now.getTimezoneOffset() * 60000;
+
+    return new Date(now.getTime() - offset).toISOString().slice(0, 16);
+};
+
 function Form(){
     const [formValue, setFormValue] = useState(
         {
             name: "",
             email: "",
             phone: "",
+            dateOfEvent: "",
+            timeOfEvent: "",
             message: ""
         }
     );
     const [errors, setErrors] = useState({});
     const [submitStatus, setSubmitStatus] = useState("");
+    const minEventDateTime = getCurrentDateTimeValue();
 
     const validateName = (name) => {
-        if (name.length <= 3) return "Name must be more than 3 characters.";
-        if (!name.includes(" ")) return "Name must include a space for first and last name.";
+        const trimmedName = name.trim();
+
+        if (trimmedName.length <= 3) return "Name must be more than 3 characters.";
+        if (!trimmedName.includes(" ")) return "Name must include a space for first and last name.";
         return "";
     };
 
     const validateEmail = (email) => {
-        if (!email.includes("@") || !email.includes(".")) return "Email must contain '@' and '.'.";
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!emailRegex.test(email.trim())) return "Email must contain a valid email address.";
         return "";
     };
 
     const validatePhone = (phone) => {
         const phoneRegex = /^\+?[\d\s\-()]{10,}$/;
-        if (!phoneRegex.test(phone)) return "Phone number must be valid (at least 10 digits, can include spaces, dashes, parentheses).";
+        if (!phoneRegex.test(phone.trim())) return "Phone number must be valid (at least 10 digits, can include spaces, dashes, parentheses).";
+        return "";
+    };
+
+    const validateDateOfEvent = (dateOfEvent) => {
+        if (!dateOfEvent) return "Please choose a date and time for your event.";
+
+        const selectedDate = new Date(dateOfEvent);
+        if (Number.isNaN(selectedDate.getTime())) return "Please choose a valid date and time.";
+        if (selectedDate <= new Date()) return "Event date and time cannot be in the past.";
+
         return "";
     };
 
     const validateMessage = (message) => {
-        if (message.length <= 30) return "Message must be more than 30 characters.";
+        if (message.trim().length <= 30) return "Message must be more than 30 characters.";
         return "";
     };
 
@@ -52,19 +77,21 @@ function Form(){
         const nameError = validateName(formValue.name);
         const emailError = validateEmail(formValue.email);
         const phoneError = validatePhone(formValue.phone);
+        const dateOfEventError = validateDateOfEvent(formValue.dateOfEvent);
         const messageError = validateMessage(formValue.message);
-        
+
         const newErrors = {
             name: nameError,
             email: emailError,
             phone: phoneError,
+            dateOfEvent: dateOfEventError,
             message: messageError,
         };
         
         setErrors(newErrors);
         
         // Check if any errors
-        if (nameError || emailError || phoneError || messageError) {
+        if (nameError || emailError || phoneError || dateOfEventError || messageError) {
             return; // Don't submit
         }
         
@@ -76,6 +103,8 @@ function Form(){
                     name: "",
                     email: "",
                     phone: "",
+                    dateOfEvent: "",
+                    timeOfEvent: "",
                     message: ""
                 });
                 setErrors({});
@@ -138,6 +167,25 @@ function Form(){
                     required
                     />
                     {errors.phone && <div className={formStyle.error}>{errors.phone}</div>}
+                </div>
+                <div className={formStyle.container}>
+                    <div className={formStyle.subtitle}>
+                        <label htmlFor="eventDate">Fecha para evento</label>
+                    </div>
+                    <div>
+                        <input
+                            type="datetime-local"
+                            className={formStyle.value}
+                            name="dateOfEvent"
+                            id="eventDate"
+                            value={formValue.dateOfEvent}
+                            onChange={handleChange}
+                            min={minEventDateTime}
+                            required
+                        />
+                    </div>
+                    {errors.dateOfEvent && <div className={formStyle.error}>{errors.dateOfEvent}</div>}
+
                 </div>
                 <div className={formStyle.container}>
                     <div className={formStyle.subtitle}>
